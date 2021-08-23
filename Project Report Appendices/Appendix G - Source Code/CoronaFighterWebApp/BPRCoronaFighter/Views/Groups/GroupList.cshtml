@@ -1,0 +1,105 @@
+﻿@model IEnumerable<BPRCoronaFighter.Models.Group>
+@{
+    ViewBag.Title = "GroupList";
+}
+
+<h2>GroupList</h2>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/a166556e40.js"></script>
+    <link href="~/Content/group.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="jumbotron">
+            <div class="container px-1 py-3">
+                <div class="row">
+                    <div class="col-md-3" id="profile">
+                        <div class="card pl-3">
+                            @*white area*@
+                            <div class="card-body">
+                                @*up area*@
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item mb-5">
+                                    @Html.ActionLink("Search Posts", "SearchPost", "Groups")
+                                </li>
+                                <li class="list-group-item mb-5">
+                                    @Html.ActionLink("Go to group", "SearchGroup", "Groups")
+                                </li>
+                                <li class="list-group-item mb-5">
+                                    @Html.ActionLink("Join group", "JoinGroup", "Groups")
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 gedf-main">
+                        <br>
+                        <div class="card gedf-card">
+                            <div class="card-body">
+
+                            </div>
+                            <div class="card-body">
+                                @foreach (var item in Model)
+                                {
+                                    <table class="table" border="1">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.GroupName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.GroupName)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.GroupTime)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.GroupTime)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.GroupCreater)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.GroupCreater)
+                                            </td>
+                                        </tr>   
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.City)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.City)
+                                            </td>
+                                        </tr>   
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.Description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                        </tr>   
+                                    </table>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    }
+</body>
+</html>

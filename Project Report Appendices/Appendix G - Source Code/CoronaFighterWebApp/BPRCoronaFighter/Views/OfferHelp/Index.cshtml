@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Help list";
+}
+@model IEnumerable<BPRCoronaFighter.Models.OfferHelp>
+
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/a166556e40.js"></script>
+    <link href="~/Content/group.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="jumbotron">
+            <b>Help List</b>
+            <div class="container px-1 py-3">
+                <div class="row">
+
+                    <div class="col-md-8 gedf-main">
+                        <br>
+                        <div class="card gedf-card">
+                            <div class="card-body">
+
+                            </div>
+                            <div class="card-body">
+                                @foreach (var item in Model)
+                                {
+                                    <table class="table" border="2">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.UserName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UserName)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.HelpTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HelpTitle)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.City)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.City)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.HelpDescription)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HelpDescription)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.HelpDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HelpDate)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.HelpTime)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HelpTime)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.FreeHour)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FreeHour)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.Contact)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Contact)
+                                            </td>
+                                        </tr>
+                                        
+
+
+                                    </table>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    }
+</body>
+</html>
